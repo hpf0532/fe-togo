@@ -56,23 +56,70 @@ export const constantRoutes = [
   },
 
   {
-    path: '/example',
+    path: '/rsa',
+    name: 'Rsa',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'el-icon-s-help' },
+    redirect: '/rsa/private',
+    meta: {title: '密钥管理', icon: 'rsa'},
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'private',
+        name: 'Private',
+        component: () => import('@/views/rsa/index'),
+        redirect: '/rsa/private/list',
+        hidden: true,
+        children: [
+          {
+            path: 'list',
+            name: 'RsaList',
+            component: () => import('@/views/rsa/list'),
+            activeMenu: '/rsa',
+            meta: {activeMenu: '/rsa'},
+            activeMenu: '/rsa',
+            hidden: true
+          },
+          {
+            path: 'create',
+            name: 'RsaCreate',
+            component: () => import('@/views/rsa/create'),
+            meta: {activeMenu: '/rsa'},
+            hidden: true,
+            activeMenu: '/rsa'
+          }
+        ]
+        // hidden: true
       },
+      // {
+      //   path: 'edit',
+      //   name: 'RsaEdit',
+      //   component: () => import('@/views/rsa/list'),
+      //   meta: {title: '密钥编辑', icon: 'rsa'},
+      //   // hidden: true
+      // }
+    ]
+  },
+
+  {
+    path: '/example',
+    component: Layout,
+    redirect: '/example/tree',
+    name: 'Example',
+    // meta: { title: 'Example', icon: 'el-icon-s-help' },
+    meta: { title: 'Example', icon: 'rsa' },
+    children: [
+      // {
+      //   path: 'table',
+      //   name: 'Table',
+      //   component: () => import('@/views/table/index'),
+      //   meta: { title: 'Table', icon: 'rsa' },
+      //   hidden: true
+      // },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: 'Tree', icon: 'rsa' },
+        // hidden: true
       }
     ]
   },
@@ -128,7 +175,9 @@ export const constantRoutes = [
                 path: 'menu1-2-2',
                 component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
                 name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
+                meta: { title: 'Menu1-2-2' },
+                activeMenu: '/nested/menu1-1'
+
               }
             ]
           },

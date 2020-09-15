@@ -63,3 +63,29 @@ div:focus {
 .app-container {
   padding: 20px;
 }
+
+.filter-container {
+  padding-bottom: 10px;
+
+  .filter-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+}
+
+.table-title {
+  margin-bottom: 15px;
+}
+
+.title-1 {
+  font-weight:bold;
+  font-size:30px;
+  margin-right:10px;
+  color:#6E7174
+}
+
+.title-2 {
+  color:gray;
+  font-size:15px
+}
